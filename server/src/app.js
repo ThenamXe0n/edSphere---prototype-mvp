@@ -22,9 +22,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Enable CORS
+const allowedOrigins = process.env.FRONTEND_URL 
+
 app.use(
   cors({
-    origin: true, // Allow frontend origin dynamically
+    origin: [allowedOrigins],
     credentials: true, // Allow sharing cookies
   })
 );
