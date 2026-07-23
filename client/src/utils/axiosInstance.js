@@ -56,7 +56,7 @@ axiosInstance.interceptors.response.use(
     // Check if the error is 401 and not already retried
     if (error.response?.status === 401 && !originalRequest._retry) {
       // Avoid infinite loop if refresh token call fails
-      if (originalRequest.url === '/auth/refresh-token') {
+      if (originalRequest.url === `${import.meta.env.VITE_API_BASE_URL}/auth/refresh-token`) {
         setAccessToken('');
         return Promise.reject(error);
       }
