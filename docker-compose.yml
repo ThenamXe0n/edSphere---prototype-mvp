@@ -28,7 +28,7 @@ services:
     environment:
       PORT: 5000
       # Connect to the MongoDB service container name
-      MONGODB_URI: mongodb://${MONGO_DB_USER:-admin}:${MONGO_DB_PASSWORD:-SecretPassword123!}@database:27017/edusphere?authSource=admin
+      MONGODB_URI: mongodb://${MONGO_DB_USER:-admin}:${MONGO_DB_PASSWORD:-SecretPassword123!}@database:27017/eduSphere?authSource=admin
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
       JWT_ACCESS_EXPIRES_IN: ${JWT_ACCESS_EXPIRES_IN:-15m}
