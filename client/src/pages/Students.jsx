@@ -343,7 +343,7 @@ const Students = () => {
       {/* Form Onboarding Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto">
-          <div className="bg-white border border-slate-100 w-full max-w-2xl rounded-3xl p-8 shadow-2xl animate-scaleUp my-8">
+          <div className="bg-white border border-slate-100 w-full max-w-2xl rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl animate-scaleUp my-8">
             <h3 className="text-lg font-bold text-slate-800 mb-6">
               {currentStudent ? 'Modify Student Profile' : 'Onboard Student Profile'}
             </h3>

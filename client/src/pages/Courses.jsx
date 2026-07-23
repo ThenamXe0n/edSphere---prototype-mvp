@@ -194,7 +194,7 @@ const Courses = () => {
       {/* Create Course Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-          <div className="bg-white border border-slate-100 w-full max-w-md rounded-3xl p-8 shadow-2xl animate-scaleUp">
+          <div className="bg-white border border-slate-100 w-full max-w-md rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl animate-scaleUp">
             <h3 className="text-lg font-bold text-slate-800 mb-6">Create New Course</h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
