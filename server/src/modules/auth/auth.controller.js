@@ -120,7 +120,7 @@ export const logout = catchAsync(async (req, res, next) => {
     httpOnly: true,
     expires: new Date(Date.now() + 10 * 1000), // expires in 10 seconds
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    sameSite: 'lax',
   });
 
   res.status(200).json({

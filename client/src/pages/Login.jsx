@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
+import { FiMail, FiLock, FiEye, FiEyeOff, FiBookOpen } from 'react-icons/fi';
 
 const Login = () => {
   const { login } = useAuth();
@@ -33,10 +33,10 @@ const Login = () => {
       <div className="w-full max-w-md bg-white border border-slate-100 rounded-3xl p-8 shadow-xl shadow-slate-100/50">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-600 text-white font-bold text-2xl shadow-md shadow-indigo-600/20 mb-4">
-            E
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-600 text-white shadow-md shadow-indigo-600/20 mb-4 shrink-0">
+            <FiBookOpen size={24} />
           </div>
-          <h2 className="text-2xl font-bold text-slate-800">Welcome Back</h2>
+          <h2 className="text-2xl font-bold text-slate-800">Welcome to EduSphere</h2>
           <p className="text-sm text-slate-400 mt-1">Sign in to manage your school workspace</p>
         </div>
 

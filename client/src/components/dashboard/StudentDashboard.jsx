@@ -138,7 +138,7 @@ const StudentDashboard = () => {
                   <div className="flex items-center space-x-4 flex-1">
                     <div className="w-12 h-12 bg-indigo-50 border border-indigo-100 rounded-xl overflow-hidden flex items-center justify-center text-indigo-600 font-bold shrink-0">
                       {course.thumbnail ? (
-                        <img src={course.thumbnail} alt="" className="w-full h-full object-cover" />
+                        <img src={`${import.meta.env.VITE_API_BASE_URL || ''}${course.thumbnail}`} alt="" className="w-full h-full object-cover" />
                       ) : (
                         course.title[0]
                       )}
