@@ -66,9 +66,7 @@ const Sidebar = ({ isOpen, onClose }) => {
       {/* Brand Header */}
       <div className="flex items-center justify-between px-6 h-16 border-b border-slate-800">
         <div className="flex items-center space-x-3">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500 text-white shadow-sm shrink-0">
-            <FiBookOpen size={16} />
-          </div>
+          <img src="/eduSphereLogo.png" alt="EduSphere Logo" className="w-8 h-8 object-contain shrink-0" />
           <span className="font-bold text-white text-base tracking-wider">
             EduSphere
           </span>
