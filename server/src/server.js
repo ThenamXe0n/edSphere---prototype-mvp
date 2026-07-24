@@ -1,3 +1,11 @@
+/**
+ * @file server.js
+ * @description Entry point for the EduSphere LMS API Server.
+ * @author Nameet Mandwal (https://github.com/ThenamXe0n)
+ * @copyright Copyright (c) 2026 Nameet Mandwal. All rights reserved.
+ * @license Proprietary / All Rights Reserved
+ */
+
 import dotenv from 'dotenv';
 import app from './app.js';
 import connectDB from './config/db.js';

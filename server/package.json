@@ -1,6 +1,8 @@
 {
   "name": "edusphere-server",
   "version": "1.0.0",
+  "author": "Nameet Mandwal <thenameet0@gmail.com> (https://github.com/ThenamXe0n)",
+  "license": "Proprietary",
   "description": "Backend server for EduSphere - Multi-Tenant Student Information & Learning Management System",
   "main": "src/server.js",
   "type": "module",
