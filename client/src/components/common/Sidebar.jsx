@@ -9,7 +9,10 @@ import {
   FiList,
   FiBook,
   FiBriefcase,
-  FiX
+  FiX,
+  FiGithub,
+  FiLinkedin,
+  FiMail
 } from 'react-icons/fi';
 
 const Sidebar = ({ isOpen, onClose }) => {
@@ -101,10 +104,42 @@ const Sidebar = ({ isOpen, onClose }) => {
       </nav>
 
       {/* Footer Info */}
-      <div className="p-4 border-t border-slate-800 text-center">
-        <p className="text-[10px] text-slate-500 uppercase tracking-widest">
-          Version 1.0.0
-        </p>
+      <div className="p-4 border-t border-slate-800 text-center space-y-2">
+        <div>
+          <p className="text-[10px] text-slate-500 uppercase tracking-widest">
+            Version 1.0.0
+          </p>
+          <p className="text-[9px] text-slate-500 font-medium tracking-wide">
+            Developed by <span className="text-indigo-400 font-semibold">Nameet Mandwal</span>
+          </p>
+        </div>
+        <div className="flex items-center justify-center space-x-3">
+          <a
+            href="https://github.com/ThenamXe0n"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-500 hover:text-indigo-400 transition"
+            title="GitHub"
+          >
+            <FiGithub size={13} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nameet-mandwal-601b201b3/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-500 hover:text-indigo-400 transition"
+            title="LinkedIn"
+          >
+            <FiLinkedin size={13} />
+          </a>
+          <a
+            href="mailto:thenameet0@gmail.com"
+            className="text-slate-500 hover:text-indigo-400 transition"
+            title="Email"
+          >
+            <FiMail size={13} />
+          </a>
+        </div>
       </div>
     </aside>
   );

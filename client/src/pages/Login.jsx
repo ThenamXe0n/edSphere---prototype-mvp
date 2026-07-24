@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
-import { FiMail, FiLock, FiEye, FiEyeOff, FiBookOpen } from 'react-icons/fi';
+import { FiMail, FiLock, FiEye, FiEyeOff, FiBookOpen, FiGithub, FiLinkedin } from 'react-icons/fi';
 
 const Login = () => {
   const { login } = useAuth();
@@ -118,13 +118,45 @@ const Login = () => {
         </form>
 
         {/* Footer Link */}
-        <div className="text-center mt-6 pt-6 border-t border-slate-100">
+        <div className="text-center mt-6 pt-6 border-t border-slate-100 space-y-3">
           <p className="text-sm text-slate-500">
             Want to register your school?{' '}
             <Link to="/register" className="font-semibold text-indigo-600 hover:text-indigo-700 transition">
               Create an account
             </Link>
           </p>
+          <div>
+            <p className="text-xs text-slate-400">
+              Developed by <span className="text-indigo-600 font-semibold">Nameet Mandwal</span>
+            </p>
+            <div className="flex items-center justify-center space-x-3 mt-2">
+              <a
+                href="https://github.com/ThenamXe0n"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-indigo-600 transition"
+                title="GitHub"
+              >
+                <FiGithub size={14} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nameet-mandwal-601b201b3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-indigo-600 transition"
+                title="LinkedIn"
+              >
+                <FiLinkedin size={14} />
+              </a>
+              <a
+                href="mailto:thenameet0@gmail.com"
+                className="text-slate-400 hover:text-indigo-600 transition"
+                title="Email"
+              >
+                <FiMail size={14} />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
