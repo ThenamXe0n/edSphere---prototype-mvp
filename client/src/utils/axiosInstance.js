@@ -55,8 +55,11 @@ axiosInstance.interceptors.response.use(
 
     // Check if the error is 401 and not already retried
     if (error.response?.status === 401 && !originalRequest._retry) {
+      const apiBase = import.meta.env.VITE_API_BASE_URL || '';
+      const refreshUrl = `${apiBase}/api/auth/refresh-token`;
+
       // Avoid infinite loop if refresh token call fails
-      if (originalRequest.url === `${import.meta.env.VITE_API_BASE_URL}/auth/refresh-token`) {
+      if (originalRequest.url === refreshUrl) {
         setAccessToken('');
         return Promise.reject(error);
       }
@@ -79,7 +82,7 @@ axiosInstance.interceptors.response.use(
 
       try {
         // Direct call to avoid request interceptor matching
-        const response = await axios.post('/auth/refresh-token', {}, { withCredentials: true });
+        const response = await axios.post(refreshUrl, {}, { withCredentials: true });
         const { token } = response.data;
 
         setAccessToken(token);

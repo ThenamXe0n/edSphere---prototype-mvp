@@ -26,7 +26,7 @@ const allowedOrigins = process.env.FRONTEND_URL
 
 app.use(
   cors({
-    origin: [allowedOrigins],
+    origin: [allowedOrigins,"http://localhost:3000"],
     credentials: true, // Allow sharing cookies
   })
 );

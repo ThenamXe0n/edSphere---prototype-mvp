@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
-import { getAllCoursesApi, createCourseApi, deleteCourseApi } from '../services/apiCollection';
+import { getAllCoursesApi, createCourseApi, deleteCourseApi, getAllInstitutesApi } from '../services/apiCollection';
 import axiosInstance from '../utils/axiosInstance';
 import useAuth from '../hooks/useAuth';
 import { FiPlus, FiBookOpen, FiTrash2, FiVideo, FiEye } from 'react-icons/fi';
@@ -14,6 +14,7 @@ const Courses = () => {
   const { user } = useAuth();
   const [courses, setCourses] = useState([]);
   const [teachers, setTeachers] = useState([]);
+  const [institutes, setInstitutes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -37,6 +38,10 @@ const Courses = () => {
       if (user.role === 'Super Admin' || user.role === 'Institute Admin') {
         const teachersRes = await axiosInstance.get('/users/teachers');
         setTeachers(teachersRes.data.data.teachers || []);
+      }
+      if (user.role === 'Super Admin') {
+        const instRes = await getAllInstitutesApi();
+        setInstitutes(instRes.data.institutes || []);
       }
       setError(null);
     } catch (err) {
@@ -75,6 +80,9 @@ const Courses = () => {
     
     if (data.instructor) {
       formData.append('instructor', data.instructor);
+    }
+    if (data.institute) {
+      formData.append('institute', data.institute);
     }
 
     if (data.thumbnail && data.thumbnail[0]) {
@@ -234,6 +242,27 @@ const Courses = () => {
                   {...register('description')}
                 />
               </div>
+
+              {/* Institute selection: Visible only to Super Admins */}
+              {user.role === 'Super Admin' && (
+                <div className="mb-4">
+                  <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                    Assign Institute
+                  </label>
+                  <select
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 focus:ring-4 focus:ring-indigo-100 rounded-xl text-sm focus:outline-none"
+                    {...register('institute', { required: 'Institute is required' })}
+                  >
+                    <option value="">Select Institute...</option>
+                    {institutes.map((inst) => (
+                      <option key={inst._id} value={inst._id}>
+                        {inst.name} ({inst.code})
+                      </option>
+                    ))}
+                  </select>
+                  {errors.institute && <span className="text-xs text-red-500 block mt-1">{errors.institute.message}</span>}
+                </div>
+              )}
 
               {/* Instructor selection: Visible only to Admins/Super Admins */}
               {(user.role === 'Super Admin' || user.role === 'Institute Admin') && (
